@@ -1,19 +1,25 @@
 {
-	"items": {
-		"item0": {
-			"name": "movie1",
-			"yearRelease": "2017",
-			"rating": "5",
-			"isWatched": true,
-			"actor": ["actor1", "actor2"],
-			"uid": "xx"
-		}
-
-	},
-	"users": {
-		"user0": {
-			"uid": "xx",
-			"username": "a"
-		}
-	}
-}
+  "movies" : {
+    "item0" : {
+      "actor" : [ "actor1", "actor2" ],
+      "isWatched" : true,
+      "name" : "movie1",
+      "rating" : "5",
+      "uid" : "xx",
+      "yearRelease" : "2017"
+    }
+  },
+  "users" : {
+    "-KjTftQmPDAexztsxcba" : {
+      "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
+      "username" : "a"
+    },
+    "-KjTfyKaY8daGC_uXM9i" : {
+      "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
+      "username" : "b"
+    },
+    "user0" : {
+      "uid" : "xx",
+      "username" : "a"
+    }
+  }
