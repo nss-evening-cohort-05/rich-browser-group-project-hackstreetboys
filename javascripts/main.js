@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	let apiKeys = {};
 
 
@@ -82,7 +82,12 @@ $(document).ready(function() {
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
-    
+    $("#logout").click(() => {
+    	clearLogin();
+    	movieAPI.logoutUser();
+    	$("#login-container").removeClass("hide");
+    	$(".main-container").addClass("hide");
+    });
 
     //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
 

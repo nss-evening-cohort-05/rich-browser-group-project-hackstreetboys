@@ -40,7 +40,7 @@ var movieAPI = ((oldFirebase) => {
         return firebase.auth().currentUser;
     };
 
-    oldFirebase.logoutUser = (email, password) => {
+    oldFirebase.logoutUser = () => {
         firebase.auth().signOut();
     };
 

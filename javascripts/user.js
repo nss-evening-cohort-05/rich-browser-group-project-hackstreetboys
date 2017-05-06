@@ -63,7 +63,7 @@ var movieAPI = (function (oldUser) {
 			.fail((error) => {
 				reject(error);
 			});
-		})
+		});
 	};
 
 	return oldUser;
