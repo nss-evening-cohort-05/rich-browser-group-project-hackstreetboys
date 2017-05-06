@@ -1,12 +1,12 @@
 var movieAPI = (function (oldDom) {
 
-	oldDom.writeDom = (movies) => { //takes array of movies
-		let domString = "";
-		movies.forEach((movie) => {
-			domString += movieAPI.buildPanel(movie);
-		});
-		$("#movie-display").html(domString);
-	};
+	// oldDom.writeDom = (movies) => { //takes array of movies
+	// 	let domString = "";
+	// 	// movies.forEach((movie) => {
+	// 		// domString += movieAPI.buildPanel(movie);
+	// 	});
+	// 	$("#movie-display").html(domString);
+	// };
 
 	oldDom.buildPanel = (movie) => {
 		let panelString = ""; 
@@ -20,6 +20,19 @@ var movieAPI = (function (oldDom) {
 										</div>`;
 		return panelString;
 	};
+
+	oldDom.logout = (apiKey) => {
+    let uid = movieAPI.credentialsCurrentUser().uid;
+    movieAPI.getUser(apiKey, uid).then((user) => {
+	firebase.auth().signOut();
+	console.log("you are now logged out");
+    // let logoutButton = `<button class="btn btn-danger" id="logoutButton">LOGOUT ${user.username}`;
+  // $('#logout-container').html(logoutButton);
+    }).catch((error) => {
+    	console.log("logout error", error);
+    })
+    
+  };
 
 	return oldDom;
 })(movieAPI || {});

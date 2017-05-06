@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	let apiKeys = {};
+
     let clearLogin = () => {
         $('#inputEmail').val("");
         $('#inputPassword').val("");
@@ -69,7 +71,7 @@ $(document).ready(function() {
             clearLogin();
             $('#login-container').addClass('hide');
             $('.main-container').removeClass('hide');
-            movieAPI.writeDom(apiKeys);
+            // movieAPI.writeDom(apiKeys);
             // movieAPI.createLogoutButton(apiKeys);
         }).catch((error) => {
             console.log(error);
@@ -79,6 +81,7 @@ $(document).ready(function() {
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
+    
 
     //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
 
