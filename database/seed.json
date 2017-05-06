@@ -1,0 +1,19 @@
+{
+	"items": {
+		"item0": {
+			"name": "movie1",
+			"yearRelease": "2017",
+			"rating": "5",
+			"isWatched": true,
+			"actor": ["actor1", "actor2"],
+			"uid": "xx"
+		}
+
+	},
+	"users": {
+		"user0": {
+			"uid": "xx",
+			"username": "a"
+		}
+	}
+}
