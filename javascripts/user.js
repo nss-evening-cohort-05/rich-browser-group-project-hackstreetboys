@@ -1,30 +1,70 @@
-var movieAPI = (function (oldUser) {
+// var movieAPI = (function (oldUser) {
 
-	oldUser.editMovie = () => {
-		//PROMISE that uses AJAX call to UPDATE movie in database
-		//Handles "watched" and "rating"
-		//use a PUT http call
-	};
+// 	oldUser.getMovies = (apiKeys) => {
+// 		let uid = movieAPI.credentialsCurrentUser().uid;
+// 		let movies = [];
+// 		return new Promise((resolve, reject) => {
+// 			$.ajax(`${apiKeys.databaseURL}/movies.json?orderBy="uid"&equalTo="${uid}"`)
+// 			.done(response => {
+// 				Object.keys(response).forEach((key) => {
+// 					response[key].id = key;
+// 					movies.push(response[key]);
+// 				});
+// 				resolve(movies);
+// 			})
+// 			.fail(error => {reject(error);});
+// 		});
+// 	};
 
-	oldUser.deleteMovie = () => {
-		//PROMISE that uses AJAX call to DELETE movie in database
-		//Handles "delete" button functionality
-		//Called in main.js
-		//use a DELETE http call
+// 	oldUser.editMovie = (apiKeys, movie, id) => {
+// 		movie.uid = movieAPI.credentialsCurrentUser().uid;
+// 		return new Promise ((resolve, reject) => {
+// 			$.ajax({
+// 				method: "PUT",
+// 				url: `${apiKeys.databaseURL}/movies/${id}.json`,
+// 				data: JSON.stringify(movie)
+// 			})
+// 			.done(() => {
+// 				resolve();
+// 			})
+// 			.fail((error) => {
+// 				reject(error);
+// 			});
+// 		});
+// 	};
 
-	};
+// 	oldUser.deleteMovie = (apiKeys, id) => {
+// 		return new Promise ((resolve, reject) => {
+// 			$.ajax({
+// 				method: "DELETE",
+// 				url: `${apiKeys.databaseURL}/movies/${id}.json`
+// 			})
+// 			.done(() => {
+// 				resolve();
+// 			})
+// 			.fail((error) => {
+// 				reject(error);
+// 			});
+// 		});
+// 	};
 
-	oldUser.addMovie = () => {
-		//PROMISE that uses AJAX call to ADD movie in database
-		//Handles "Save" button functionality
-		//Called in main.js
-		//use a POST http call
-	};
+// 	//MAKE SURE THIS GETS APIKEYS AND A NEWMOVIE OBJECT
+// 	oldUser.addMovie = (apiKeys, newMovie, id) => {
+// 		newMovie.uid = movieAPI.credentialsCurrentUser().uid;
+// 		return new Promise((resolve, reject) => {
+// 			$.ajax({
+// 				method: "POST",
+// 				url: `${apiKeys.databaseURL}/movies.json`,
+// 				data: JSON.stringify(newMovie)
+// 			})
+// 			.done(() => {
+// 				resolve();
+// 			})
+// 			.fail((error) => {
+// 				reject(error);
+// 			});
+// 		})
+// 	};
 
-	
-
-
-	
-
-	return oldUser;
-})(movieAPI || {});
+// 	return oldUser;
+// })(movieAPI || {});
