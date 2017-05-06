@@ -3,7 +3,7 @@
   "description": "",
   "main": "",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/nss-evening-cohort-05/rich-browser-group-project-hackstreetboys",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -14,5 +14,8 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "bootstrap": "^3.3.7"
-  }
+  },
+  "authors": [
+    "Ben Greaves <bsgreaves@gmail.com>"
+  ]
 }
