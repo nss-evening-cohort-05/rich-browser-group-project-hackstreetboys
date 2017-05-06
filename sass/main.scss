@@ -1,14 +1,22 @@
 @import 'colors';
-
 body {
-  color: $blue;
+    color: $blue;
 }
 
+.input-holder {
+    input {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: $yellow;
+    }
+}
 
-.input-holder{
-	input{
-		margin-top: 20px;
-		margin-bottom: 20px;
-		background-color: $yellow;
-	}
+.container {
+    input {
+        margin: 5px;
+    }
+
+    button {
+    	
+    }
 }
