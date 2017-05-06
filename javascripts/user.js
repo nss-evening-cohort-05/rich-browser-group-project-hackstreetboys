@@ -1,12 +1,12 @@
 var movieAPI = (function (oldUser) {
 
-	olderUser.editMovie = () => {
+	oldUser.editMovie = () => {
 		//PROMISE that uses AJAX call to UPDATE movie in database
 		//Handles "watched" and "rating"
 		//use a PUT http call
 	};
 
-	olderUser.deleteMovie = () => {
+	oldUser.deleteMovie = () => {
 		//PROMISE that uses AJAX call to DELETE movie in database
 		//Handles "delete" button functionality
 		//Called in main.js
@@ -14,7 +14,7 @@ var movieAPI = (function (oldUser) {
 
 	};
 
-	olderUser.addMovie = () => {
+	oldUser.addMovie = () => {
 		//PROMISE that uses AJAX call to ADD movie in database
 		//Handles "Save" button functionality
 		//Called in main.js
