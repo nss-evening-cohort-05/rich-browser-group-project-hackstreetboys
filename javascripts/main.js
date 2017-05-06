@@ -1,6 +1,7 @@
 $(document).ready(function() {
-
+	
 	let apiKeys = {};
+
 
     let clearLogin = () => {
         $('#inputEmail').val("");
@@ -92,7 +93,15 @@ $(document).ready(function() {
     //CLICK event to update "watched". Calls movieAPI.editMovie .then WriteDom
 
     //CLICK event to Switch to ADD MOVIE View
+    $("#new-movie").click(() => {
+        $("#saved-view").addClass("hide");
+        $("#search-view").removeClass("hide");
+    });
 
     //CLICK event to Switch to SAVED MOVIES View
+    $("#saved-movies").click(() => {
+        $("#search-view").addClass("hide");
+        $("#saved-view").removeClass("hide");
+    });
 
 });

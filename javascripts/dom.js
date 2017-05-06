@@ -1,12 +1,15 @@
 var movieAPI = (function (oldDom) {
 
-	// oldDom.writeDom = (movies) => { //takes array of movies
-	// 	let domString = "";
-	// 	// movies.forEach((movie) => {
-	// 		// domString += movieAPI.buildPanel(movie);
-	// 	});
-	// 	$("#movie-display").html(domString);
-	// };
+
+	oldDom.writeDom = (apiKeys) => { 
+		movieAPI.getMovies(apiKeys).then((movies) => {
+			let domString = "";
+			movies.forEach((movie) => {
+				domString += movieAPI.buildPanel(movie);
+			});
+			$("#movie-display").html(domString);
+		}).catch((error) => {console.log("error in get movies", error);});
+	};
 
 	oldDom.buildPanel = (movie) => {
 		let panelString = ""; 
