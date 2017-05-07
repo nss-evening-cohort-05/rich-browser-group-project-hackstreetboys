@@ -1,9 +1,8 @@
 $(document).ready(function() {
-	
-	let apiKeys = {};
-    let movie = Object();
 
-    
+    let apiKeys = {};
+    let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
+
     let clearLogin = () => {
         $('#inputEmail').val("");
         $('#inputPassword').val("");
@@ -23,28 +22,23 @@ $(document).ready(function() {
         let movieTitle = $('#movieSearch').val();
         movieAPI.getMovie(movieTitle).then((results) => {
             console.log("Movie API results:", results);
-            if (results.Response == "False"){
-                 $("#saved-view").removeClass('hide');
-
-                $("#saved-view").html(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">${results.Error}</div>`);
-            }else {
-                movie.movieName = results.Title;
-                movie.rating = "";
-                movie.yearRelease = results.Released; 
-                movie.actors = results.Actors;
+            if (results.Response == "False") {
+                $("#searched-movie").html(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">${results.Error}</div>`);
+            } else {
+                searchedMovie.movieName = results.Title;
+                searchedMovie.rating = "";
+                searchedMovie.year = results.Year;
+                searchedMovie.actors = results.Actors;
+                searchedMovie.watched = false;
                 let movieString = `<div class="row col-xs-4 col-xs-offset-4" style="background-color: #fca27e ; border: 1px solid blue; margin-top: 15px;">`;
-                movieString += `<h3>${movie.movieName}</h3>`;
-                movieString += `<p>Released: ${movie.yearRelease}</p>`;
-                movieString += `<p>Actors: ${movie.actors}</p>`;
-                movieString += `<p>Rating: ${movie.rating}</p>`; 
+                movieString += `<h3>${searchedMovie.movieName}</h3>`;
+                movieString += `<p>Released: ${searchedMovie.yearRelease}</p>`;
+                movieString += `<p>Actors: ${searchedMovie.actors}</p>`;
+                movieString += `<p>Rating: ${searchedMovie.rating}</p>`;
                 movieString += `<button class="btn btn-primary col-xs-2 addMovie" id="addMovie">Save</button>`;
                 movieString += `</div>`;
-
-                $("#saved-view").html(movieString);
-                $("#saved-view").removeClass('hide');
-
-            };
-
+                $("#searched-movie").html(movieString);
+            }
         }).catch((error) => {
             console.log("getMovie Error", error);
         });
@@ -107,23 +101,26 @@ $(document).ready(function() {
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
-    
+
 
     //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
     //Bao
-    $('.main-container').on('click', '.addMovie', (e) => {    
-        movieAPI.saveMovie(apiKeys, movie).then(() => {
-        $("#saved-view").append(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">Movie ${movie.movieName}  saved !</div>`);
+    $('.main-container').on('click', '.addMovie', (e) => {
+        movieAPI.addMovie(apiKeys, searchedMovie).then(() => {
+            $("#searched-movie").html(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">Movie ${searchedMovie.movieName}  saved!</div>`);
+            $(e.target).remove();
 
-        $(e.target).remove();
+        }).catch((error) => {
+            console.log("Add Movie Error", error);
 
-          }).catch((error) => {
-            console.log("saveMovie error", error);
-
-          }); 
+        });
     });
 
-    //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie .then WriteDom
+    //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie, then WriteDom
+
+    $("body").on("click", ".deleteButton", (e) => {
+        console.log($(e.target).closest(".movieCard").attr("id")); //This gets the ID for the movie.
+    });
 
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
 
@@ -139,10 +136,10 @@ $(document).ready(function() {
     $("#saved-movies").click(() => {
         $("#search-view").addClass("hide");
         $("#saved-view").removeClass("hide");
-        
+        movieAPI.writeDom(apiKeys);
     });
 
-    
+
 
 
 });

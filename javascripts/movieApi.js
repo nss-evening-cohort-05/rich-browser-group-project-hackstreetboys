@@ -13,22 +13,5 @@ var movieAPI = (function (movieCall) {
 		});
 	};
 
-	//Bao
-	movieCall.saveMovie = (apiKeys, newMovie) => {
-	newMovie.uid = movieAPI.credentialsCurrentUser().uid;
-		return new Promise ((resolve, reject) => {
-			$.ajax({
-				method: 'POST',
-				url:`${apiKeys.databaseURL}/items.json`,
-				data: JSON.stringify(newMovie)
-			}).done(() => {
-				resolve();
-			}).fail((error) => {
-				reject(error);
-			});
-		});
-	};
-	//Bao
-
 	return movieCall;
 })(movieAPI || {});
