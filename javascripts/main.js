@@ -72,10 +72,10 @@ $(document).ready(function() {
             clearLogin();
             $('#login-container').addClass('hide');
             $('.main-container').removeClass('hide');
-            // movieAPI.writeDom(apiKeys);
+            movieAPI.writeDom(apiKeys);
             // movieAPI.createLogoutButton(apiKeys);
         }).catch((error) => {
-            console.log(error);
+            console.log("error in Login user", error);
 
         });
     });

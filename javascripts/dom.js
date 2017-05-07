@@ -12,15 +12,20 @@ var movieAPI = (function (oldDom) {
 	};
 
 	oldDom.buildPanel = (movie) => {
+		console.log(movie);
 		let panelString = ""; 
-		panelString += `<div class="panel panel-default">
+		panelString += `<div class="panel panel-default col-md-4">
 											<div class="panel-heading">
-												<h3 class="panel-title">Panel title</h3>
+												<h3 class="panel-title">${movie.name}</h3>
 	  									</div>
 	  									<div class="panel-body">
-	    									Panel content
+	  									Released in ${movie.yearRelease}<br>
+	    									Starring ${movie.actor[0]}
 	  									</div>
-										</div>`;
+	  									<div class="rating-holder">
+	  									
+	  									</div>
+	  								</div>`;
 		return panelString;
 	};
 
