@@ -141,5 +141,5 @@ $(document).ready(function() {
 
 
 
-
+    movieAPI.movieReview();
 });

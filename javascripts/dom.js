@@ -25,14 +25,15 @@ var movieAPI = (function (oldDom) {
 	    										<p>Starring ${movie.actors}</p>`;
 	  											if (movie.watched === true) {
 	  		panelString += 		`<div class="form-group form-inline">
-    												<label>Rating</label>
-    												<input type="text" class="form-control" value="${movie.rating}">
+    												
+    												${movieAPI.movieReview()};	    												
+    												
+    												
   												</div>
 	  											<button class="btn btn-sm btn-success col-xs-4 watchedButton">Watched</button>
 	  											<button class="btn btn-sm btn-primary col-xs-4 col-xs-offset-4 deleteButton">Delete</button>`;
-	  											} else {
+	  											} else {								
 	  		panelString += 		`<div class="form-group form-inline">
-    												<label>Rating</label>
     												<input type="text" class="form-control rating-input" value="Haven't Seen it!" disabled>
   												</div>
   												<button class="btn btn-sm btn-danger col-xs-4 notWatchedButton">Not Watched</button>
