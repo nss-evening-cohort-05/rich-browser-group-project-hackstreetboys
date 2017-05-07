@@ -49,7 +49,7 @@ var movieAPI = (function (oldUser) {
 	};
 
 	//MAKE SURE THIS GETS APIKEYS AND A NEWMOVIE OBJECT
-	oldUser.addMovie = (apiKeys, newMovie, id) => {
+	oldUser.addMovie = (apiKeys, newMovie) => {
 		newMovie.uid = movieAPI.credentialsCurrentUser().uid;
 		return new Promise((resolve, reject) => {
 			$.ajax({
@@ -63,7 +63,7 @@ var movieAPI = (function (oldUser) {
 			.fail((error) => {
 				reject(error);
 			});
-		})
+		});
 	};
 
 	return oldUser;
