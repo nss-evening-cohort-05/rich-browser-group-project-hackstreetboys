@@ -130,15 +130,11 @@ $(document).ready(function() {
 
         movieAPI.grabMovie(apiKeys, clickedMovieId).then((grabbedMovie) => {
                 grabbedMovie.watched = !grabbedMovie.watched;
-                console.log("changed", grabbedMovie.watched);
-                console.log("to send", grabbedMovie);
                 movieAPI.editMovie(apiKeys, grabbedMovie, clickedMovieId).then(() => {
                     movieAPI.writeDom(apiKeys);
                 }).catch((error) => {
                     console.log("error in grabMovie", error);
                 });
-
-
             })
             .catch((error) => {
                 console.log("Watched button error", error);
