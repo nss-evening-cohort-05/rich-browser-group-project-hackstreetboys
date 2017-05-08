@@ -124,7 +124,7 @@ $(document).ready(function() {
 
     //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie, then WriteDom
 
-    $(".body").on("click", ".deleteButton", (event) => {
+    $(".main-container").on("click", ".deleteButton", (event) => {
         movieAPI.deleteMovie(apiKeys, event.target.id).then(() => {
             movieAPI.writeDom(apiKeys);
         }).catch((error) => {
