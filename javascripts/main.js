@@ -133,6 +133,22 @@ $(document).ready(function() {
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
 
     //CLICK event to update "watched". Calls movieAPI.editMovie .then WriteDom
+    $("body").on("click", ".notWatchedButton, .watchedButton", (e) => {
+        clickedMovieId = $(e.target).closest(".movieCard").attr("id");
+
+        movieAPI.grabMovie(apiKeys, clickedMovieId).then((grabbedMovie) => {
+                grabbedMovie.watched = !grabbedMovie.watched;
+                movieAPI.editMovie(apiKeys, grabbedMovie, clickedMovieId).then(() => {
+                    movieAPI.writeDom(apiKeys);
+                }).catch((error) => {
+                    console.log("error in grabMovie", error);
+                });
+            })
+            .catch((error) => {
+                console.log("Watched button error", error);
+            });
+
+    });
 
     //CLICK event to Switch to ADD MOVIE View
     $("#new-movie").click(() => {

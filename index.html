@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Movie History</title>
     <!-- Third Party Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
     <link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
     <!-- Personal Styles -->
     <style type="text/css">
-      body{
-        background: url(http://content.paulreiffer.com/wp-content/uploads/2015/11/Curtain-Call-Hollywood-Sign-Not-For-Resale-Copyright-Paul-Reiffer-Photographer-2015-6MP-Download.jpg) no-repeat center center fixed;
+    body {
+        background: url(img/hollywood.jpeg) no-repeat center center fixed;
         background-size: cover;
-      }
+    }
     </style>
-  </head>
-  <body>
-  
-  <nav class="navbar navbar-inverse">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -26,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Movie History<span class="glyphicon glyphicon-film"></span></a>
+                <a class="navbar-brand" href="#">MOVIE HISTORY<span class="glyphicon glyphicon-film"></span></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,47 +42,43 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-  <div class="container col-xs-4 col-xs-offset-4" id="login-container">
-        <h3 class="text-center form-spacing">Login</h3>
+    <div class="container col-xs-4 col-xs-offset-4" id="login-container">
+        <h3 class="text-center form-spacing login">Login</h3>
         <input type="email" value="a@a.com" id="inputEmail" class="form-control form-spacing" placeholder="Email" required autofocus>
         <input type="password" value="aaaaaa" id="inputPassword" class="form-control form-spacing" placeholder="Password" required>
         <input type="text" id="inputUsername" class="form-control form-spacing" placeholder="Username" required>
         <button class="btn btn-lg btn-success col-xs-6" id="loginButton">Login</button>
         <button class="btn btn-lg btn-primary col-xs-6" id="registerButton">Register</button>
     </div>
-
-  <div class="main-container hide">
-    <div id="search-view" class="hide">
-      <div class="row input-holder">
-        <input type="text" class="col-xs-4 col-xs-offset-4" id="movieSearch">
-      </div>
-      <div class="row col-xs-4 col-xs-offset-4">
-        <button class="btn btn-danger btn-lg col-xs-12" id="getMovie">Search</button>
-      </div>
-      <div id="searched-movie" class="">
-      </div>
+    <div class="main-container hide">
+        <div id="search-view" class="hide">
+            <div class="row input-holder">
+                <input type="text" class="col-xs-4 col-xs-offset-4" id="movieSearch">
+            </div>
+            <div class="row col-xs-4 col-xs-offset-4">
+                <button class="btn btn-danger btn-lg col-xs-12" id="getMovie">Search</button>
+            </div>
+            <div id="searched-movie" class="">
+            </div>
+        </div>
+        <div id="saved-view">
+            <h2 class="text-center">Saved Movies</h2>
+            <br>
+            <div class="container" id="movie-display">
+            </div>
+        </div>
     </div>
-    <div id="saved-view">
-      <h2 class="text-center">My Saved Movies</h2>
-      <br>
-      <div class="container" id="movie-display">
-        
-      </div>
-    </div>
-  </div>
-  
-  <!-- Third Party Scripts -->
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  
-  <!-- Personal Scripts -->
-  <script type="text/javascript" src="./javascripts/firebaseAuth.js"></script>
-  <script type="text/javascript" src="./javascripts/movieApi.js"></script>
-  <script type="text/javascript" src="javascripts/userDB.js"></script>
-  <script type="text/javascript" src="./javascripts/dom.js"></script>
-  <script type="text/javascript" src="./javascripts/user.js"></script>
-  <script type="text/javascript" src="./javascripts/main.js"></script>
+    <!-- Third Party Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Personal Scripts -->
+    <script type="text/javascript" src="./javascripts/firebaseAuth.js"></script>
+    <script type="text/javascript" src="./javascripts/movieApi.js"></script>
+    <script type="text/javascript" src="javascripts/userDB.js"></script>
+    <script type="text/javascript" src="./javascripts/dom.js"></script>
+    <script type="text/javascript" src="./javascripts/user.js"></script>
+    <script type="text/javascript" src="./javascripts/main.js"></script>
 </body>
+
 </html>
