@@ -37,9 +37,9 @@
 
   <div class="container col-xs-4 col-xs-offset-4" id="login-container">
         <h3 class="text-center form-spacing">Login</h3>
-        <input type="email " id="inputEmail" class="form-control form-spacing" placeholder="Email" required autofocus>
-        <input type="password " id="inputPassword" class="form-control form-spacing " placeholder="password " required>
-        <input type="text " id="inputUsername" class="form-control form-spacing " placeholder="Username " required>
+        <input type="email" value="a@a.com" id="inputEmail" class="form-control form-spacing" placeholder="Email" required autofocus>
+        <input type="password" value="aaaaaa" id="inputPassword" class="form-control form-spacing" placeholder="Password" required>
+        <input type="text" id="inputUsername" class="form-control form-spacing" placeholder="Username" required>
         <button class="btn btn-lg btn-success col-xs-6" id="loginButton">Login</button>
         <button class="btn btn-lg btn-primary col-xs-6" id="registerButton">Register</button>
     </div>
@@ -50,11 +50,14 @@
         <input type="text" class="col-xs-4 col-xs-offset-4" id="movieSearch">
       </div>
       <div class="row col-xs-4 col-xs-offset-4">
-        <button class="btn btn-danger btn-lg col-xs-12" id="getMovie">Get Movie</button>
+        <button class="btn btn-danger btn-lg col-xs-12" id="getMovie">Search</button>
+      </div>
+      <div id="searched-movie" class="">
       </div>
     </div>
     <div id="saved-view">
-      <h2>My Saved Movies</h2>
+      <h2 class="text-center">My Saved Movies</h2>
+      <br>
       <div class="container" id="movie-display">
         
       </div>

@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	let apiKeys = {};
 
+    let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
 
     let clearLogin = () => {
         $('#inputEmail').val("");
@@ -17,14 +18,33 @@ $(document).ready(function() {
         console.log("key errors", error);
     });
 
+    //Bao
     $('#getMovie').click((event) => {
         let movieTitle = $('#movieSearch').val();
         movieAPI.getMovie(movieTitle).then((results) => {
             console.log("Movie API results:", results);
+            if (results.Response == "False") {
+                $("#searched-movie").html(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">${results.Error}</div>`);
+            } else {
+                searchedMovie.movieName = results.Title;
+                searchedMovie.rating = "";
+                searchedMovie.year = results.Year;
+                searchedMovie.actors = results.Actors;
+                searchedMovie.watched = false;
+                let movieString = `<div class="row col-xs-4 col-xs-offset-4" style="background-color: #fca27e ; border: 1px solid blue; margin-top: 15px;">`;
+                movieString += `<h3>${searchedMovie.movieName}</h3>`;
+                movieString += `<p>Released: ${searchedMovie.yearRelease}</p>`;
+                movieString += `<p>Actors: ${searchedMovie.actors}</p>`;
+                movieString += `<p>Rating: ${searchedMovie.rating}</p>`;
+                movieString += `<button class="btn btn-primary col-xs-2 addMovie" id="addMovie">Save</button>`;
+                movieString += `</div>`;
+                $("#searched-movie").html(movieString);
+            }
         }).catch((error) => {
             console.log("getMovie Error", error);
         });
     });
+    //Bao
 
     //CLICK event to fire registerUser. Calls movieAPI.registerUser
     $('#registerButton').click((event) => {
@@ -72,16 +92,17 @@ $(document).ready(function() {
             clearLogin();
             $('#login-container').addClass('hide');
             $('.main-container').removeClass('hide');
-            // movieAPI.writeDom(apiKeys);
+            movieAPI.writeDom(apiKeys);
             // movieAPI.createLogoutButton(apiKeys);
         }).catch((error) => {
-            console.log(error);
+            console.log("error in Login user", error);
 
         });
     });
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
+
     $("#logout").click(() => {
     	clearLogin();
     	movieAPI.logoutUser();
@@ -89,9 +110,25 @@ $(document).ready(function() {
     	$(".main-container").addClass("hide");
     });
 
-    //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
 
-    //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie .then WriteDom
+    //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
+    //Bao
+    $('.main-container').on('click', '.addMovie', (e) => {
+        movieAPI.addMovie(apiKeys, searchedMovie).then(() => {
+            $("#searched-movie").html(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">Movie ${searchedMovie.movieName}  saved!</div>`);
+            $(e.target).remove();
+
+        }).catch((error) => {
+            console.log("Add Movie Error", error);
+
+        });
+    });
+
+    //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie, then WriteDom
+
+    $("body").on("click", ".deleteButton", (e) => {
+        console.log($(e.target).closest(".movieCard").attr("id")); //This gets the ID for the movie.
+    });
 
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
 
@@ -107,6 +144,10 @@ $(document).ready(function() {
     $("#saved-movies").click(() => {
         $("#search-view").addClass("hide");
         $("#saved-view").removeClass("hide");
+        movieAPI.writeDom(apiKeys);
     });
+
+
+
 
 });
