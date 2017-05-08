@@ -1,17 +1,9 @@
 {
   "movies" : {
-    "-KjYMBxUqKWm4yl1IyKT" : {
-      "actors" : "William B. Davis, Bob Desrosiers, Charmaine Hamp, Robert Kennedy",
-      "movieName" : "Blob",
-      "rating" : "4",
-      "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
-      "watched" : true,
-      "year" : "2010"
-    },
     "-KjYMLMMvlE90huG_71k" : {
       "actors" : "William B. Davis, Bob Desrosiers, Charmaine Hamp, Robert Kennedy",
       "movieName" : "Blob",
-      "rating" : "4",
+      "rating" : "4 - Yes",
       "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
       "watched" : true,
       "year" : "2010"
@@ -35,7 +27,7 @@
     "-KjYOudXsT2rFctHwDdU" : {
       "actors" : "Woody Allen, Dan Aykroyd, Anne Bancroft, Jane Curtin",
       "movieName" : "Antz",
-      "rating" : "3",
+      "rating" : "3 - Meh",
       "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
       "watched" : true,
       "year" : "1998"
@@ -51,7 +43,7 @@
     "-KjYP63966MAs32SKjYI" : {
       "actors" : "Al Pacino, Robert De Niro, Val Kilmer, Jon Voight",
       "movieName" : "Heat",
-      "rating" : "5",
+      "rating" : "5 - Awesome!",
       "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
       "watched" : true,
       "year" : "1995"
