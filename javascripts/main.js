@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-    let apiKeys = {};
+	let apiKeys = {};
+
     let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
 
     let clearLogin = () => {
@@ -32,7 +33,7 @@ $(document).ready(function() {
                 searchedMovie.watched = false;
                 let movieString = `<div class="row col-xs-4 col-xs-offset-4" style="background-color: #fca27e ; border: 1px solid blue; margin-top: 15px;">`;
                 movieString += `<h3>${searchedMovie.movieName}</h3>`;
-                movieString += `<p>Released: ${searchedMovie.yearRelease}</p>`;
+                movieString += `<p>Released: ${searchedMovie.year}</p>`;
                 movieString += `<p>Actors: ${searchedMovie.actors}</p>`;
                 movieString += `<p>Rating: ${searchedMovie.rating}</p>`;
                 movieString += `<button class="btn btn-primary col-xs-2 addMovie" id="addMovie">Save</button>`;
@@ -101,6 +102,13 @@ $(document).ready(function() {
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
+
+    $("#logout").click(() => {
+    	clearLogin();
+    	movieAPI.logoutUser();
+    	$("#login-container").removeClass("hide");
+    	$(".main-container").addClass("hide");
+    });
 
 
     //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
