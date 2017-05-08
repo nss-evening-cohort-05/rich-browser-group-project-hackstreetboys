@@ -31,14 +31,14 @@ var movieAPI = (function (oldDom) {
     												<input type="text" class="form-control" value="${movie.rating}">
   												</div>
 	  											<button class="btn btn-sm btn-success col-xs-4 watchedButton">Watched</button>
-	  											<button id="deleteButton" class="btn btn-sm btn-primary col-xs-4 col-xs-offset-4 deleteButton">Delete</button>`;
+	  											<button class="btn btn-sm btn-primary col-xs-4 col-xs-offset-4 deleteButton">Delete</button>`;
 	  											} else {
 	  		panelString += 		`<div class="form-group form-inline">
     												<label>Rating</label>
     												<input type="text" class="form-control rating-input" value="Haven't Seen it!" disabled>
   												</div>
   												<button class="btn btn-sm btn-danger col-xs-4 notWatchedButton">Not Watched</button>
-	  											<button id="deleteButton" class="btn btn-sm btn-primary col-xs-4 col-xs-offset-4 deleteButton">Delete</button>`;
+	  											<button class="btn btn-sm btn-primary col-xs-4 col-xs-offset-4 deleteButton">Delete</button>`;
 	  											}
 	  		panelString +=   `</div>
 	  									  </div>

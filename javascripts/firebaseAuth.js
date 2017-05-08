@@ -48,7 +48,7 @@ var movieAPI = ((oldFirebase) => {
         return new Promise ((resolve, reject) => {
             $.ajax({
                 method: 'DELETE',
-                url:`${apiKeys.databaseURL}/seed/${movies}.json`
+                url:`${apiKeys.databaseURL}/movies/${id}.json`
             }).done(() => {
                 resolve();
             }).fail((error) => {
