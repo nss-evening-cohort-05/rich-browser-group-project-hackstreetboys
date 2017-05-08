@@ -52,12 +52,23 @@
     </div>
     <div class="main-container hide">
         <div id="search-view" class="hide">
-            <div class="row input-holder">
+            <div class="row">        
+              <div class=" col-xs-4 col-xs-offset-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="movieSearch" placeholder="Search for movie">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" id="getMovie">Search</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->        
+<!--             <div class="row input-holder">
                 <input type="text" class="col-xs-4 col-xs-offset-4" id="movieSearch">
             </div>
             <div class="row col-xs-4 col-xs-offset-4">
                 <button class="btn btn-danger btn-lg col-xs-12" id="getMovie">Search</button>
             </div>
+ -->
             <div id="searched-movie" class="">
             </div>
         </div>
