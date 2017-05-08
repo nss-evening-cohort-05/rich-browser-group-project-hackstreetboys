@@ -121,17 +121,19 @@ $(document).ready(function() {
 
         });
     });
+});
+
 
     //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie, then WriteDom
 
     $('.main-container').on('click', '.deleteButton', (e) => {
-        movieAPI.deleteMovie(apiKeys, e.target.id).then(() => {
-            movieAPI.writeDom(apiKeys);
-            console.log("clicked");
+    let movieToDelete = $(e.target).closest(".movieCard").attr("id");
+    movieAPI.deleteMovie(apiKeys, movieToDelete).then(()=> {
+            moviesApi.writeDom(apiKeys);
         }).catch((error) => {
-            console.log("error in deleteMovie", error);
+            console.log("errors in deleteMovie", error);
         });
-    });
+
 
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
 
