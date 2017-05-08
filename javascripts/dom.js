@@ -10,7 +10,9 @@ var movieAPI = (function (oldDom) {
 			});
 			domString += "</div>";
 			$("#movie-display").html(domString);
-		}).catch((error) => {console.log("error in get movies", error);});
+		}).catch((error) => {
+			console.log("error in get movies", error);
+		});
 	};
 
 	oldDom.buildPanel = (movie) => {
@@ -44,6 +46,7 @@ var movieAPI = (function (oldDom) {
 		return panelString;
 	};
 
+  
 	oldDom.logout = (apiKey) => {
     let uid = movieAPI.credentialsCurrentUser().uid;
     movieAPI.getUser(apiKey, uid).then((user) => {

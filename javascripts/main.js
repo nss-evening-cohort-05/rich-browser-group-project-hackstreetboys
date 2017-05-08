@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-    let apiKeys = {};
+	let apiKeys = {};
+
     let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
 
     let clearLogin = () => {
@@ -101,6 +102,13 @@ $(document).ready(function() {
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
+
+    $("#logout").click(() => {
+    	clearLogin();
+    	movieAPI.logoutUser();
+    	$("#login-container").removeClass("hide");
+    	$(".main-container").addClass("hide");
+    });
 
 
     //CLICK event to add movie to database.  Calls movieAPI.addMovie .then swap view and WriteDom
