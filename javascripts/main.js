@@ -125,14 +125,21 @@ $(document).ready(function() {
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
 
     //CLICK event to update "watched". Calls movieAPI.editMovie .then WriteDom
-    $("body").on("click", ".watchedButton", (e) => {
+    $("body").on("click", ".notWatchedButton, .watchedButton", (e) => {
         clickedMovieId = $(e.target).closest(".movieCard").attr("id");
-        movieAPI.editMovie(apiKeys, clickedMovieId).then(() => {
 
-        }).catch((error) => {
-            console.log("Watched button error", error);
-        });
-        console.log(clickedMovie); //This gets the ID for the movie.
+        movieAPI.grabMovie(apiKeys, clickedMovieId).then((grabbedMovie) => {
+                grabbedMovie.watched = !grabbedMovie.watched;
+                console.log("changed", grabbedMovie.watched);
+                console.log("to send", grabbedMovie);
+                movieAPI.editMovie(apiKeys, grabbedMovie, clickedMovieId);
+                movieAPI.writeDom(apiKeys);
+
+            })
+            .catch((error) => {
+                console.log("Watched button error", error);
+            });
+
     });
 
     //CLICK event to Switch to ADD MOVIE View
