@@ -33,7 +33,7 @@ $(document).ready(function() {
                 searchedMovie.watched = false;
                 let movieString = `<div class="row col-xs-4 col-xs-offset-4" style="background-color: #fca27e ; border: 1px solid blue; margin-top: 15px;">`;
                 movieString += `<h3>${searchedMovie.movieName}</h3>`;
-                movieString += `<p>Released: ${searchedMovie.yearRelease}</p>`;
+                movieString += `<p>Released: ${searchedMovie.year}</p>`;
                 movieString += `<p>Actors: ${searchedMovie.actors}</p>`;
                 movieString += `<p>Rating: ${searchedMovie.rating}</p>`;
                 movieString += `<button class="btn btn-primary col-xs-2 addMovie" id="addMovie">Save</button>`;
