@@ -46,7 +46,7 @@ var movieAPI = (function (oldDom) {
 		return panelString;
 	};
 
-  
+
 	oldDom.logout = (apiKey) => {
     let uid = movieAPI.credentialsCurrentUser().uid;
     movieAPI.getUser(apiKey, uid).then((user) => {

@@ -44,6 +44,8 @@ var movieAPI = ((oldFirebase) => {
         firebase.auth().signOut();
     };
 
+    
+
     return oldFirebase;
 
 })(movieAPI || {});

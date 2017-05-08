@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 	let apiKeys = {};
 
     let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
@@ -103,11 +104,12 @@ $(document).ready(function() {
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
 
+
     $("#logout").click(() => {
-    	clearLogin();
-    	movieAPI.logoutUser();
-    	$("#login-container").removeClass("hide");
-    	$(".main-container").addClass("hide");
+        clearLogin();
+        movieAPI.logoutUser();
+        $("#login-container").removeClass("hide");
+        $(".main-container").addClass("hide");
     });
 
 
@@ -124,10 +126,17 @@ $(document).ready(function() {
         });
     });
 
-    //CLICK event to delete movie from database.  Calls movieAPI.deleteMovie, then WriteDom
 
-    $("body").on("click", ".deleteButton", (e) => {
-        console.log($(e.target).closest(".movieCard").attr("id")); //This gets the ID for the movie.
+
+//CLICK event to delete movie from database.  Calls movieAPI.deleteMovie, then WriteDom
+
+$('.main-container').on('click', '.deleteButton', (e) => {
+    let movieToDelete = $(e.target).closest(".movieCard").attr("id");
+        movieAPI.deleteMovie(apiKeys, movieToDelete).then(() => {
+        movieAPI.writeDom(apiKeys);
+        }).catch((error) => {
+            console.log("errors in deleteMovie", error);
+        });
     });
 
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
