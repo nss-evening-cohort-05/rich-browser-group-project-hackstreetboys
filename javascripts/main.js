@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    let apiKeys = {};
+
+	let apiKeys = {};
+
     let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
 
     let clearLogin = () => {
@@ -32,7 +34,7 @@ $(document).ready(function() {
                 searchedMovie.watched = false;
                 let movieString = `<div class="row col-xs-4 col-xs-offset-4" style="background-color: #fca27e ; border: 1px solid blue; margin-top: 15px;">`;
                 movieString += `<h3>${searchedMovie.movieName}</h3>`;
-                movieString += `<p>Released: ${searchedMovie.yearRelease}</p>`;
+                movieString += `<p>Released: ${searchedMovie.year}</p>`;
                 movieString += `<p>Actors: ${searchedMovie.actors}</p>`;
                 movieString += `<p>Rating: ${searchedMovie.rating}</p>`;
                 movieString += `<button class="btn btn-primary col-xs-2 addMovie" id="addMovie">Save</button>`;
@@ -101,6 +103,8 @@ $(document).ready(function() {
 
 
     //CLICK event to fire logoutUser. Calls movieAPI.logoutUser
+
+
     $("#logout").click(() => {
         clearLogin();
         movieAPI.logoutUser();
@@ -138,6 +142,22 @@ $('.main-container').on('click', '.deleteButton', (e) => {
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
 
     //CLICK event to update "watched". Calls movieAPI.editMovie .then WriteDom
+    $("body").on("click", ".notWatchedButton, .watchedButton", (e) => {
+        clickedMovieId = $(e.target).closest(".movieCard").attr("id");
+
+        movieAPI.grabMovie(apiKeys, clickedMovieId).then((grabbedMovie) => {
+                grabbedMovie.watched = !grabbedMovie.watched;
+                movieAPI.editMovie(apiKeys, grabbedMovie, clickedMovieId).then(() => {
+                    movieAPI.writeDom(apiKeys);
+                }).catch((error) => {
+                    console.log("error in grabMovie", error);
+                });
+            })
+            .catch((error) => {
+                console.log("Watched button error", error);
+            });
+
+    });
 
     //CLICK event to Switch to ADD MOVIE View
     $("#new-movie").click(() => {
