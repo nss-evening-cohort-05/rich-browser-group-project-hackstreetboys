@@ -126,8 +126,8 @@ $(document).ready(function() {
 
     //CLICK event to update "watched". Calls movieAPI.editMovie .then WriteDom
     $("body").on("click", ".watchedButton", (e) => {
-        clickedMovie = $(e.target).closest(".movieCard").attr("id");
-        movieAPI.editMovie(apiKeys, clickedMovie).then(() => {
+        clickedMovieId = $(e.target).closest(".movieCard").attr("id");
+        movieAPI.editMovie(apiKeys, clickedMovieId).then(() => {
 
         }).catch((error) => {
             console.log("Watched button error", error);
