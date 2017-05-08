@@ -44,6 +44,19 @@ var movieAPI = ((oldFirebase) => {
         firebase.auth().signOut();
     };
 
+    oldFirebase.deleteMovie = (apiKeys) => {
+        return new Promise ((resolve, reject) => {
+            $.ajax({
+                method: 'DELETE',
+                url:`${apiKeys.databaseURL}/seed/${movies}.json`
+            }).done(() => {
+                resolve();
+            }).fail((error) => {
+                reject(error);
+            });
+        });
+    };
+
     return oldFirebase;
 
 })(movieAPI || {});

@@ -1,12 +1,68 @@
 {
   "movies" : {
-    "item0" : {
-      "actor" : [ "actor1", "actor2" ],
-      "isWatched" : true,
-      "name" : "movie1",
+    "-KjYMBxUqKWm4yl1IyKT" : {
+      "actors" : "William B. Davis, Bob Desrosiers, Charmaine Hamp, Robert Kennedy",
+      "movieName" : "Blob",
+      "rating" : "4",
+      "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
+      "watched" : true,
+      "year" : "2010"
+    },
+    "-KjYMLMMvlE90huG_71k" : {
+      "actors" : "William B. Davis, Bob Desrosiers, Charmaine Hamp, Robert Kennedy",
+      "movieName" : "Blob",
+      "rating" : "4",
+      "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
+      "watched" : true,
+      "year" : "2010"
+    },
+    "-KjYNrJGQmHuQYjSUkMv" : {
+      "actors" : "Drew Barrymore, Roger Jackson, Kevin Patrick Walls, David Booth",
+      "movieName" : "Scream",
+      "rating" : "",
+      "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
+      "watched" : false,
+      "year" : "1996"
+    },
+    "-KjYNuShaRbsCji1dceC" : {
+      "actors" : "Helen Hunt, Bill Paxton, Cary Elwes, Jami Gertz",
+      "movieName" : "Twister",
+      "rating" : "",
+      "uid" : "o64qPqUWNUhQ0OJRVerLbKUcAJu1",
+      "watched" : false,
+      "year" : "1996"
+    },
+    "-KjYOudXsT2rFctHwDdU" : {
+      "actors" : "Woody Allen, Dan Aykroyd, Anne Bancroft, Jane Curtin",
+      "movieName" : "Antz",
+      "rating" : "3",
+      "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
+      "watched" : true,
+      "year" : "1998"
+    },
+    "-KjYP2pMF_XPRaZ1hE1S" : {
+      "actors" : "Mark Wahlberg, Charlize Theron, Donald Sutherland, Jason Statham",
+      "movieName" : "The Italian Job",
+      "rating" : "",
+      "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
+      "watched" : false,
+      "year" : "2003"
+    },
+    "-KjYP63966MAs32SKjYI" : {
+      "actors" : "Al Pacino, Robert De Niro, Val Kilmer, Jon Voight",
+      "movieName" : "Heat",
       "rating" : "5",
-      "uid" : "xx",
-      "yearRelease" : "2017"
+      "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
+      "watched" : true,
+      "year" : "1995"
+    },
+    "-KjYPFgfLsFPBOSAuzAi" : {
+      "actors" : "Aaron Stanford, Kathleen Quinlan, Vinessa Shaw, Emilie de Ravin",
+      "movieName" : "The Hills Have Eyes",
+      "rating" : "",
+      "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
+      "watched" : false,
+      "year" : "2006"
     }
   },
   "users" : {
@@ -17,9 +73,6 @@
     "-KjTfyKaY8daGC_uXM9i" : {
       "uid" : "nwx47j6M9mgz9K0YLDqAAK4aEic2",
       "username" : "b"
-    },
-    "user0" : {
-      "uid" : "xx",
-      "username" : "a"
     }
   }
+}
