@@ -27,8 +27,20 @@ var movieAPI = (function (oldDom) {
 	    										<p>Starring ${movie.actors}</p>`;
 	  											if (movie.watched === true) {
 	  		panelString += 		`<div class="form-group form-inline">
-    												<label>Rating</label>
-    												<input type="text" class="form-control" value="${movie.rating}">
+    												
+													<div class="dropdown">
+													  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+													    Rating													    <span class="caret"></span>
+													  </button>
+													  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+													    <li><a href="#" class="ratingDropDown">1 - Stinker!</a></li>
+													    <li><a href="#" class="ratingDropDown">2 - No</a></li>
+													    <li><a href="#" class="ratingDropDown">3 - Meh</a></li>
+													    <li><a href="#" class="ratingDropDown">4 - Yes</a></li>
+													    <li><a href="#" class="ratingDropDown">5 - Awesome!</a></li>
+													  </ul>
+													</div> 
+		    										<h4 class="rated">${movie.rating}</h4>
   												</div>
 	  											<button class="btn btn-sm btn-success col-xs-4 watchedButton">Watched</button>
 	  											<button class="btn btn-sm btn-primary col-xs-4 col-xs-offset-4 deleteButton">Delete</button>`;
