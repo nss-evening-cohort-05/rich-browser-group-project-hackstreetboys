@@ -12,10 +12,16 @@ body {
   .navbar .glyphicon {
     margin: 12px; }
   .navbar li {
-    margin-top: 6%;
+    margin-top: 7%;
     color: white; }
   .navbar li:hover {
     outline: 1px solid white; }
+  .navbar ul a {
+    color: white; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+  text-transform: uppercase; }
 
 .input-holder input {
   margin-top: 20px;
@@ -25,7 +31,8 @@ body {
 .container input {
   margin: 5px; }
 
-.main-container h2, .login {
+.main-container h2,
+.login {
   font-family: 'Russo One', sans-serif;
   color: white; }
 
