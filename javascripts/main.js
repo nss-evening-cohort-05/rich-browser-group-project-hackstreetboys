@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	let apiKeys = {};
 
-    let searchedMovie = {}; //Bao, Object() was throwing a grunt error so I changed it
+    let searchedMovie = {}; 
 
     let clearLogin = () => {
         $('#inputEmail').val("");
@@ -14,7 +14,6 @@ $(document).ready(function() {
     movieAPI.firebaseCredentials().then((keys) => {
         apiKeys = keys;
         firebase.initializeApp(apiKeys);
-        //FbApi.writeDom(apiKeys);
     }).catch((error) => {
         console.log("key errors", error);
     });
@@ -23,7 +22,6 @@ $(document).ready(function() {
     $('#getMovie').click((event) => {
         let movieTitle = $('#movieSearch').val();
         movieAPI.getMovie(movieTitle).then((results) => {
-            console.log("Movie API results:", results);
             if (results.Response == "False") {
                 $("#searched-movie").html(`<div class="row col-xs-4 col-xs-offset-4" style="margin-top: 15px; color: red; font-size: 25px; font-weight: bolder;">${results.Error}</div>`);
             } else {
@@ -32,13 +30,14 @@ $(document).ready(function() {
                 searchedMovie.year = results.Year;
                 searchedMovie.actors = results.Actors;
                 searchedMovie.watched = false;
-                let movieString = `<div class="row col-xs-4 col-xs-offset-4" style="background-color: #fca27e ; border: 1px solid blue; margin-top: 15px;">`;
+                let movieString = `<div class="row col-xs-4 col-xs-offset-4">`;
+                movieString += `<div class="panel panel-default"><div class="panel-body">`;
                 movieString += `<h3>${searchedMovie.movieName}</h3>`;
                 movieString += `<p>Released: ${searchedMovie.year}</p>`;
                 movieString += `<p>Actors: ${searchedMovie.actors}</p>`;
                 movieString += `<p>Rating: ${searchedMovie.rating}</p>`;
                 movieString += `<button class="btn btn-primary col-xs-2 addMovie" id="addMovie">Save</button>`;
-                movieString += `</div>`;
+                movieString += `</div></div></div>`;
                 $("#searched-movie").html(movieString);
             }
         }).catch((error) => {
@@ -141,7 +140,6 @@ $('.main-container').on('click', '.deleteButton', (e) => {
 
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
     $("body").on("click", ".ratingDropDown", (e) => {
-        console.log("e.target.value.innerHTML", e.target.innerHTML);
         let ratedMovieId = $(e.target).closest(".movieCard").attr("id");
         movieAPI.grabMovie(apiKeys, ratedMovieId).then((movieToRate) => {
             movieToRate.rating = e.target.innerHTML;
