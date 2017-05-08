@@ -2,31 +2,33 @@ var movieAPI = ((rating) => {
 	let ratingString = "";
 	let ratingValue = 0;
 
+	// rating.showMeOne = () => {
+	// 	$("#btn-group").addClass("hidden");
+	// 	$(".one").removeClass("hidden");
+	// }
+
 	rating.movieReview = () => {
 		ratingString =`
-			<h6>Rating</h6>
-			
-			<div class="btn-group" data-toggle="buttons">   
-			    <label class = "btn btn-warning" for="star1" title="Stinker! - 1 star">
-			    <input type="radio" id="star1" name="rating" value="1" />1</label>			    
-			    <label class = "btn btn-warning" for="star2" title="Kinda bad - 2 stars">
-			    <input type="radio" id="star2" name="rating" value="2" />2</label>
-			    <label class = "btn btn-warning" for="star3" title="Meh - 3 stars">
-			    <input type="radio" id="star3" name="rating" value="3" />3</label>
-			    <label class = "btn btn-warning" for="star4" title="Pretty good - 4 stars">
-			    <input type="radio" id="star4" name="rating" value="4" />4</label>
-			    <label class = "btn btn-warning" for="star5" title="Awesome - 5 stars">
-			    <input type="radio" id="star5" name="rating" value="5" />5</label>
-			</div>`;
+			<h6>Rating</h6>			
+			<div class="btn-group" data-toggle="buttons">
+				<button class="btn btn-warning" id="button1">1</button>   
+				<button class="btn btn-warning" id="button2">2</button>   
+				<button class="btn btn-warning" id="button3">3</button>   
+				<button class="btn btn-warning" id="button4">4</button>   
+				<button class="btn btn-warning" id="button5">5</button>`   
+			// <div class="one hidden">
+			// 	<h1>1</h1>
+			// 	<h4>Stinker!</h4>
+			// </div>`
 
 		return ratingString;
 	};
 
-	rating.captureValue = (event) => {
-		console.log("event.target.innerHTML", event.target);
-	};
+		
 
-	$(".btn-warning").click(rating.captureValue);
+
+
+	// $("#button1").click(rating.showMeOne);
 	return rating;
 
 })(movieAPI || {});

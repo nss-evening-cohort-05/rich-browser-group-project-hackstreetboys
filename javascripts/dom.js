@@ -26,7 +26,7 @@ var movieAPI = (function (oldDom) {
 	  											if (movie.watched === true) {
 	  		panelString += 		`<div class="form-group form-inline">
     												
-    												${movieAPI.movieReview()};	    												
+    												${movieAPI.movieReview()}	    												
     												
     												
   												</div>
