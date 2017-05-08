@@ -140,6 +140,19 @@ $('.main-container').on('click', '.deleteButton', (e) => {
     });
 
     //CLICK event to update rating. Calls movieAPI.editMovie .then WriteDom
+    $("body").on("click", ".ratingDropDown", (e) => {
+        console.log("e.target.value.innerHTML", e.target.innerHTML);
+        let ratedMovieId = $(e.target).closest(".movieCard").attr("id");
+        movieAPI.grabMovie(apiKeys, ratedMovieId).then((movieToRate) => {
+            movieToRate.rating = e.target.innerHTML;
+            movieAPI.editMovie(apiKeys, movieToRate, ratedMovieId).then(() => {
+                movieAPI.writeDom(apiKeys);
+            }).catch((error) => {
+                console.log("rating movie error", error);
+            });
+        });
+    });
+
 
     //CLICK event to update "watched". Calls movieAPI.editMovie .then WriteDom
     $("body").on("click", ".notWatchedButton, .watchedButton", (e) => {
