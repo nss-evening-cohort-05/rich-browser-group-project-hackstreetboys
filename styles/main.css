@@ -1,6 +1,22 @@
 body {
   color: blue; }
 
+.navbar {
+  background-color: transparent;
+  border-color: transparent;
+  height: 20%; }
+  .navbar .navbar-brand {
+    font-family: 'Russo One', sans-serif;
+    font-size: 2.75em;
+    color: white; }
+  .navbar .glyphicon {
+    margin: 12px; }
+  .navbar li {
+    margin-top: 6%;
+    color: white; }
+  .navbar li:hover {
+    outline: 1px solid white; }
+
 .input-holder input {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -8,3 +24,13 @@ body {
 
 .container input {
   margin: 5px; }
+
+.main-container h2, .login {
+  font-family: 'Russo One', sans-serif;
+  color: white; }
+
+.panel {
+  color: white;
+  background-color: rgba(40, 26, 26, 0.78); }
+  .panel h3 {
+    text-align: center; }
